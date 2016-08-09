@@ -58,7 +58,6 @@ class Validator(Base):
                 subquery = {'bool': {'must_not': {'match': {}}}}
                 subquery['bool']['must_not']['match'][id_field] = self._id
                 query['should'].append(subquery)
-            print query
             if 'should' in query:
                 query['minimum_should_match'] = 1
             query = {'query': {'bool': query}, 'size': 0}

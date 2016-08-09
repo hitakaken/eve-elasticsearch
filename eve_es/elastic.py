@@ -52,10 +52,8 @@ class Elastic(Base):
                 self.es.indices.put_mapping(**kwargs)
 
     def insert(self, resource, doc_or_docs, **kwargs):
-        # print(json.dumps(doc_or_docs))
         ids = []
         kwargs.update(self._es_args(resource))
-        print(kwargs)
         for doc in doc_or_docs:
             doc_id = doc.get('_id')
             doc.pop('_id', None)
