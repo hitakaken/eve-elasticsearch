@@ -50,3 +50,16 @@ class Elastic(Base):
                 logger.warning('mapping error, updating settings resource=%s' % resource)
                 self.put_settings(app, index)
                 self.es.indices.put_mapping(**kwargs)
+
+    def insert(self, resource, doc_or_docs, **kwargs):
+        # print(json.dumps(doc_or_docs))
+        ids = []
+        kwargs.update(self._es_args(resource))
+        print(kwargs)
+        for doc in doc_or_docs:
+            doc_id = doc.get('_id')
+            doc.pop('_id', None)
+            res = self.es.index(body=doc, id=doc_id, **kwargs)
+            ids.append(res.get('_id', doc_id))
+        self._refresh_resource_index(resource)
+        return ids

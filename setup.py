@@ -16,7 +16,7 @@ install_requires = [
 
 setup(
     name='Eve-ElasticSearch',
-    version='0.0.5',
+    version='0.0.6',
     description='Elasticsearch data layer for eve rest framework and elasticsearch 2.x',
     long_description=readme,
     author='CaoKe',
