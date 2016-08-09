@@ -5,8 +5,8 @@ from setuptools import setup, find_packages
 with open('README') as f:
     readme = f.read()
 
-with open('LICENSE') as f:
-    license = f.read()
+# with open('LICENSE') as f:
+#    license = f.read()
 
 install_requires = [
     'eve>=0.6.0',
@@ -16,13 +16,13 @@ install_requires = [
 
 setup(
     name='Eve-ElasticSearch',
-    version='0.0.3',
+    version='0.0.5',
     description='Elasticsearch data layer for eve rest framework and elasticsearch 2.x',
     long_description=readme,
     author='CaoKe',
     author_email='hitakaken@gmail.com',
     url='https://github.com/hitakaken/eve-elasticsearch',
-    license=license,
+    license='MIT',
     platforms=["any"],
     packages=['eve_es'],
     test_suite="test.tests",
@@ -41,5 +41,5 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
-    data_files=[('', ['README.md', 'LICENSE'])]
+    # data_files=[('', ['README'])]
 )
