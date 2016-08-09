@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from eve.io.mongo import Validator as Base
 from eve.utils import config, str_type
+from flask import current_app as app
+
 
 class Validator(Base):
     def _validate_mapping(self, mapping, field, value):

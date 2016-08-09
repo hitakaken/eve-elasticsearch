@@ -1,15 +1,21 @@
 # -*- coding: utf-8 -*-
 
+import elasticsearch
 import logging
+
 
 import eve_elastic.elastic as elastic
 from eve_elastic import Elastic as Base
 from eve.utils import config, str_type
-from eve.io.mongo import Validator
 
 logger = logging.getLogger('elastic')
 
+
 class Elastic(Base):
+    def __init__(self, app, **kwargs):
+        self.kwargs = kwargs
+        super(Elastic, self).__init__(app)
+
     def put_mapping(self, app, index=None):
         """Put mapping for elasticsearch for current schema.
 
